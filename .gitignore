@@ -12,6 +12,8 @@ __pycache__/
 .idea/vcs.xml
 config.DB_FILE
 
+tapp.db
+
 info/
 industries.csv
 markets.csv
