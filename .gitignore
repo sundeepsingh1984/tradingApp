@@ -1,8 +1,9 @@
 application/cache
-
-Stock_Handler
+Stock_Handler/
 config.py
 venv/
+.idea/
+.idea/.gitignore
 .ipynb_checkpoints/
 __pycache__/
 .idea/FullStack-Trading-APP.iml
@@ -11,12 +12,11 @@ __pycache__/
 .idea/modules.xml
 .idea/vcs.xml
 config.DB_FILE
-
 tapp.db
-
 info/
 industries.csv
 markets.csv
+set_locale.sh
 us-balance-annual.csv
 us-balance-annual-full.csv
 us-balance-banks-annual.csv
