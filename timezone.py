@@ -1,13 +1,3 @@
-from datetime import datetime
-import pytz
-
-def is_dst():
-    """Determine whether or not Daylight Savings Time (DST)
-    is currently in effect"""
-
-    x = datetime(datetime.now().year, 1, 1, 0, 0, 0, tzinfo=pytz.timezone('US/Eastern')) # Jan 1 of this year
-    y = datetime.now(pytz.timezone('US/Eastern'))
-
-    # if DST is in effect, their offsets will be different
-    return not (y.utcoffset() == x.utcoffset())
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:40384f120499bd9aa2bf5b3ace7880f14638bcb6ce6353a82a457087224810c3
+size 417

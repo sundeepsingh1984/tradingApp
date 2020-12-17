@@ -1,6 +1,3 @@
-import math
-
-#Instead of hardcoding 1000, better would be to get the balance amount from alpaca and use that as numerator
-def calculate_quantity(price):
-    quantity = math.floor(10000/price)
-    return quantity
+version https://git-lfs.github.com/spec/v1
+oid sha256:b0aee8bed6dd5afa4e7550b9667ab2b1525a3212b8c63b2aeae1df549c758a85
+size 212

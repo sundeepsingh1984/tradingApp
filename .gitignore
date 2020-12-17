@@ -1,5 +1,6 @@
 application/cache
 Stock_Handler/
+Data_Providers/
 config.py
 venv/
 .idea/
