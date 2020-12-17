@@ -1,13 +1,1 @@
 
-quick scalping
-WK
-UUUU
-UEC
-U
-TSE
-WTT
-AAL
-AEO
-EB
-ELYS
-INTU
