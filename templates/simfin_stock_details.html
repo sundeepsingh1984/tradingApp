@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1><a href="/fundamentals">Financials</a>
+    <i class="angle double right icon"></i>
+    {{income_statement[0]['name']}}
+    {{income_statement[0]['symbol']}}</h1>
+
+<form  align= "right" method="get">
+
+        <select name="filter_f">
+
+            <option {% if request.query_params.filter=="annual" %} selected = "selected" {% endif %}
+                    value="annual">Annual</option>
+            <option {% if request.query_params.filter=="quarterly" %} selected = "selected" {% endif %}
+                    value="quarterly">Quarterly</option>
+            <option {% if request.query_params.filter=="trailing" %} selected = "selected" {% endif %}
+                    value="trailing">Trailing</option>
+         </select>
+
+         <input type="submit" />
+    </form>
+
+
+<font style="color:ORANGE" size="4" align= "left"> Income Statement  </font>
+
+    <table class="ui striped table ui definition table">
+              <thead>
+                    <tr>
+                        <tr><th>in million USD</th>
+                      {% for yr in fiscal_year %}
+                       <th>{{yr['fiscal_year']}}</th>
+                      {% endfor %}
+                    </tr>
+              </thead>
+          <tbody>
+
+          {% for elem in selected_elements_income %}
+              <tr>
+                      <td width="30">{{elem}}</td>
+                        {% for is in income_statement %}
+                           {% if is[elem] %}
+                                 {% if elem == 'report_date' or elem == 'publish_date' or elem == 'restated_date' %}
+                                     <td>{{is[elem]}}</td>
+
+                                 {% elif elem == 'revenue'%}
+                                     <td><a href={{is['source']}}>{{is[elem]/1000000}}</a></td>
+
+                                 {% else %}
+                                     <td>{{is[elem]/1000000}}</td>
+                                 {% endif %}
+                            {% endif %}
+                        {% endfor %}
+              </tr>
+           {% endfor %}
+
+    </table>
+
+<!--Balance Sheet Table-->
+
+<h1> </h1>
+<font style="color:ORANGE" size="4"> Balance Sheet  </font>
+
+    <table class="ui striped table ui definition table">
+              <thead>
+                    <tr>
+                        <tr><th>in million USD</th>
+                      {% for yr in fiscal_year %}
+                       <th>{{yr['fiscal_year']}}</th>
+                      {% endfor %}
+                    </tr>
+              </thead>
+          <tbody>
+
+          {% for ele in selected_elements_balance %}
+              <tr>
+                      <td width="30" >{{ele}}</td>
+                        {% for bs in balance_sheet %}
+
+                            {% if bs[ele] %}
+                                     <td>{{bs[ele]/1000000}}</td>
+                            {% else %}
+                                    <td>{{bs[ele]}}</td>
+                            {% endif %}
+
+                        {% endfor %}
+              </tr>
+           {% endfor %}
+
+    </table>
+
+
+<!--Cash Flow Table-->
+
+<h1> </h1>
+<font style="color:ORANGE" size="4"> Cash Flow  </font>
+
+    <table class="ui striped table ui definition table">
+              <thead>
+                    <tr>
+                        <tr><th>in million USD</th>
+                      {% for yr in fiscal_year %}
+                       <th>{{yr['fiscal_year']}}</th>
+                      {% endfor %}
+                    </tr>
+              </thead>
+          <tbody>
+
+          {% for el in selected_elements_cashflow %}
+              <tr>
+                      <td width="30" >{{el}}</td>
+                        {% for cs in cashflow %}
+                            {% if cs[el] %}
+                                     <td>{{cs[el]/1000000}}</td>
+                            {% else %}
+                                    <td>{{cs[el]}}</td>
+                            {% endif %}
+                        {% endfor %}
+              </tr>
+           {% endfor %}
+
+    </table>
+
+
+
+
+
+<h1> </h1>
+
+
+
+
+
+
+
+
+{% endblock %}
+

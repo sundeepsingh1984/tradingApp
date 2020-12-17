@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+    <h1> simFin Stock List </h1>
+
+
+    <table class="ui striped table">
+    <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>P/E</th>
+          <th>RoE</th>
+
+<!--          <th>P/E</th>-->
+<!--          <th>ROE</th>-->
+        </tr>
+    </thead>
+
+    <tbody>
+      {% for fund in fundamentals %}
+      <tr>
+            <td width="20">{{fund.symbol}}</td>
+            <td width="500" ><a href="/fundamentals/{{fund.stock_id}}"> {{fund.name}}</a></td>
+
+      </tr>
+      {% endfor %}
+
+    </tbody>
+
+    </table>
+
+{% endblock %}

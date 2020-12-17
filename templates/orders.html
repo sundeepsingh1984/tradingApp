@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>Orders</h1>
+
+
+<!--Order({ 'asset_class': 'us_equity', 'asset_id': 'be507550-631b-4803-b496-107adf9dd698', 'canceled_at': None, 'client_order_id': '4185de98-a5db-40ee-ad8a-ab97d52ad7e3', 'expired_at': None, 'extended_hours': False, 'failed_at': None, 'filled_at': None,'hwm': None, 'id': '42f1b147-dfe8-427b-a154-3489e3349d01', 'legs': None, 'limit_price': None, 'order_class': 'bracket', 'order_type': 'stop', 'qty': '100', 'replaced_at': None, 'replaced_by': None, 'replaces': None, 'status': 'held', 'stop_price': '19.355000000000004', 'submitted_at': '2020-12-10T19:50:09.721081Z','time_in_force': 'day', 'trail_percent': None, 'trail_price': None, 'type': 'stop', 'updated_at': '2020-12-10T19:50:09.727081Z'}-->
+
+<table class="ui striped table">
+    <thead>
+    <tr>
+        <th>Created</th>
+        <th>Side</th>
+        <th>Quantity</th>
+        <th>Symbol</th>
+        <th>Price</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    {% for order in orders %}
+    <tr>
+
+        <td>{{ order.created_at }} </td>
+        <td>{{ order.side }} </td>
+        <td>{{ order.filled_qty }} </td>
+        <td>{{ order.symbol }} </td>
+        <td>{{ order.filled_avg_price }} </td>
+        <td>{{order.status}}</td>
+
+
+
+    </tr>
+    {% endfor %}
+
+
+</table>
+
+
+{% endblock %}
